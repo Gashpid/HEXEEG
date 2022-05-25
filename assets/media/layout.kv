@@ -1,0 +1,489 @@
+<Graph>
+  ScreenManager:
+    id: sm_main
+    Screen:
+      MDCard:
+        orientation: 'vertical'
+        size_hint: None,None
+        size: 300,400
+        pos_hint: {'center_x':0.5, 'center_y':0.5}
+        elevation: 10
+        padding: 25
+        spacing: 25
+
+        MDLabel:
+          id: welcome_label
+          text: 'Please Authenticate'
+          font_size: 35
+          halign: 'center'
+          size_hint_y: None
+          height: self.texture_size[1]
+          apdding_y: 30
+        
+        MDTextFieldRound:
+          id: username
+          hint_text: 'username'
+          icon_right: 'account'
+          size_hint_x: None
+          width: 200
+          font_size: 18
+          pos_hint: {'center_x': 0.5}
+        
+        MDTextFieldRound:
+          id: licence
+          hint_text: 'licence'
+          icon_right: 'eye-off'
+          size_hint_x: None
+          width: 200
+          font_size: 18
+          pos_hint: {'center_x': 0.5}
+          password: True
+        
+        MDRoundFlatButton:
+          text: 'Remember me'
+          font_size: 12
+          pos_hint: {'center_x': 0.5}
+          on_press: sm_main.current= app.remember()
+        
+        MDRoundFlatButton:
+          text: 'Log In'
+          font_size: 12
+          pos_hint: {'center_x': 0.5}
+          on_press: sm_main.current= app.logger()
+
+        MDRoundFlatButton:
+          text: 'Sing Up'
+          font_size: 12
+          pos_hint: {'center_x': 0.5}
+
+
+    Screen:
+      name:"screen_app"
+      id: app_screens
+
+      BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+          title: "H3XEEG"
+          elevation: 10
+          size_hint: (1,.06)
+          md_bg_color: (.119, .139, .172, 1.0)
+          specific_text_color: app.theme_cls.accent_color
+          left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+        
+        ScreenManager:
+          id: sm_sub
+          Screen:
+            name: "screen_app_activity"
+            BoxLayout:
+              orientation: 'horizontal'
+              pos_hint: {'top':1}
+              size_hint_y: 0.05
+              Button:
+                id: chnn_sel
+                text: 'CHNN 1'
+                size_hint:(0.25,1)
+                border: 0, 0, 0, 0
+                background_color: (.07, .07, .07, 1.0)
+                color: app.theme_cls.accent_color
+                
+              MDToolbar:
+                id: toolbar
+                elevation: 10
+                size_hint:(1,1)
+                md_bg_color: (.07, .07, .07, 1.0)
+                specific_text_color: app.theme_cls.accent_color
+                right_action_items:
+                  [['mouse-off', lambda x: app.graph_iconstatus()],
+                  ['play-circle-outline', lambda x: app.GPlay_iconstatus()],
+                  ['pause-circle-outline', lambda x: app.GPause_iconstatus()],
+                  ['stop-circle-outline', lambda x: app.GStop_iconstatus()],
+                  ['alpha-t-box', lambda x: app.Gtime_iconstatus()],
+                  ['square-off', lambda x: app.Gspec_iconstatus()],
+                  ['square-off', lambda x: app.Gpowe_iconstatus()],
+                  ['dlna', lambda x: app.electrode_childwindow()],
+                  ['dots-horizontal-circle', lambda x: graph_tools.set_state("open")]]
+
+            BoxLayout:
+              id: box
+              size_hint_y: .95
+              pos_hint: {"bottom":1}
+
+          Screen:
+            name:"screen_app_table"
+            MDLabel:
+              text:"Table Screen Label"
+              pos_hint:{'center_x':2}
+
+      MDNavigationDrawer:
+        id: nav_drawer
+        size_hint: (.25,.94)
+        pos_hint: {'bottom': 1}
+        md_bg_color: (.119, .139, .172, 0)
+        BoxLayout:
+          orientation: 'vertical'
+
+          MDToolbar:
+            title: "File"
+            elevation: 10
+            size_hint: (1,.06)
+            md_bg_color: (.119, .139, .172, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [['file-table-outline', lambda x: app.launchFiles()]]
+          
+          MDToolbar:
+            title: "Port"
+            elevation: 10
+            size_hint: (1,.06)
+            md_bg_color: (.119, .139, .172, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [['usb-port', lambda x: app.get_port()]]
+
+          MDToolbar:
+            title: "Characteristics"
+            elevation: 10
+            size_hint: (1,.06)
+            md_bg_color: (.119, .139, .172, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [['box-shadow', lambda x: charact_nav.set_state('toggle')]]
+          
+          MDToolbar:
+            title: "Model"
+            elevation: 10
+            size_hint: (1,.06)
+            md_bg_color: (.119, .139, .172, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [['apache-kafka']]
+          
+          MDToolbar:
+            title: "Protocol"
+            elevation: 10
+            size_hint: (1,.06)
+            md_bg_color: (.119, .139, .172, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [['protocol']]
+          
+          MDToolbar:
+            title: "Launch game"
+            elevation: 10
+            size_hint: (1,.06)
+            md_bg_color: (.119, .139, .172, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [['rocket-launch', lambda x: app.launchGame()]]
+          
+          Label:
+            size_hint: (1,.5)
+      
+      MDNavigationDrawer:
+        id: port_nav
+        size_hint: (.25,.45)
+        orientation: 'vertical'
+        pos_hint: {'center_y':0.3}
+        md_bg_color: (.119, .139, .172, 1)
+
+        Label:
+          color: app.theme_cls.accent_color
+          text: "DEVICE PORT"
+          size_hint: (1,.15)
+          font_size: 20
+          bold: True
+
+        GridLayout:
+          cols: 2
+          id: port_nav_grid
+      
+      MDNavigationDrawer:
+        id: charact_nav
+        size_hint: (.25,.45)
+        orientation: 'vertical'
+        pos_hint: {'center_y':0.3}
+        md_bg_color: (.119, .139, .172, 1)
+
+        Label:
+          color: app.theme_cls.accent_color
+          text: "CHARACTERISTICS"
+          size_hint: (1,.15)
+          font_size: 20
+          bold: True
+          
+
+        GridLayout:
+          cols: 2
+
+          Label:
+            text: "PSD"
+            font_size: 14
+            bold: True
+          CheckBox:
+            on_active: print('')
+
+          Label:
+            text: "Lyapunov"
+            font_size: 14
+            bold: True
+          CheckBox:
+            on_active: print('')
+        
+
+
+      MDNavigationDrawer:
+        id: graph_tools
+        size_hint: (.86,.046)
+        pos_hint: {'top':.942}
+        BoxLayout:
+          orientation: 'horizontal'
+          MDToolbar:
+            elevation: 10
+            size_hint:(1,1)
+            md_bg_color: (.065, .065, .065, 1.0)
+            specific_text_color: app.theme_cls.accent_color
+            right_action_items: 
+              [['cursor-move', lambda x: app.graph_iconstatSet(1)],
+              ['magnify-plus-outline', lambda x: app.graph_iconstatSet(2)],
+              ['magnify-minus-outline', lambda x: app.graph_iconstatSet(3)],
+              ['mouse-off', lambda x: app.graph_iconstatSet(0)]]
+
+
+      MDNavigationDrawer:
+        halign: False
+        id: electrodes
+        size_hint: (.45,.5)
+        orientation: 'vertical'
+        radius: [100, 100, 100, 100]
+        md_bg_color: (.6, .6, .6, 1)
+        pos_hint: {'center_x':.5,'center_y':.4969}
+        BoxLayout:
+          Label:
+            size_hint: (1.01*Window.width/Window.height,1)
+          MDToolbar:
+            id: Fp1
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':-.13}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('Fp1')]]
+          Label:
+            size_hint: (.5*Window.width/Window.height,1)
+          MDToolbar:
+            id: Fp2
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':-.13}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('Fp2')]]
+          Label:
+            size_hint: (1.5*Window.width/Window.height,1)
+        BoxLayout:
+          spacing: dp(1)
+          Label:
+            size_hint: (.55*Window.width/Window.height,1)
+          MDToolbar:
+            id: F7
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':-.05}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('F7')]]
+          Label:
+            size_hint: (1.2*Window.width/Window.height,1)
+          MDToolbar:
+            id: F8
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':-.05}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('F8')]]
+          Label:
+            size_hint: (1*Window.width/Window.height,1)
+        BoxLayout:
+          spacing: dp(1)
+          Label:
+            size_hint: (1.55*Window.width/Window.height,1)
+          MDToolbar:
+            id: F3
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.76}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('F3')]]
+          Label:
+            size_hint: (.5*Window.width/Window.height,1)
+          MDToolbar:
+            id: Fz
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.76}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('Fz')]]
+          Label:
+            size_hint: (.5*Window.width/Window.height,1)
+          MDToolbar:
+            id: F4
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.76}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('F4')]]
+          Label:
+            size_hint: (2.4*Window.width/Window.height,1)
+        BoxLayout:
+          spacing: dp(1)
+          Label:
+            size_hint: (.5*Window.width/Window.height,1)
+          MDToolbar:
+            id: T3
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.5}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('T3')]]
+          Label:
+            size_hint: (.44*Window.width/Window.height,1)
+          MDToolbar:
+            id: C3
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.5}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('C3')]]
+          Label:
+            size_hint: (.44*Window.width/Window.height,1)
+          MDToolbar:
+            id: Cz
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.5}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('Cz')]]
+          Label:
+            size_hint: (.44*Window.width/Window.height,1)
+          MDToolbar:
+            id: C4
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.5}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('C4')]]
+          Label:
+            size_hint: (.44*Window.width/Window.height,1)
+          MDToolbar:
+            id: T4
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.5}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('T4')]]
+          Label:
+            size_hint: (1.1*Window.width/Window.height,1)
+        BoxLayout:
+          spacing: dp(1)
+          Label:
+            size_hint: (1.56*Window.width/Window.height,1)
+          MDToolbar:
+            id: P3
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.25}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('P3')]]
+          Label:
+            size_hint: (.48*Window.width/Window.height,1)
+          MDToolbar:
+            id: Pz
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.25}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('Pz')]]
+          Label:
+            size_hint: (.48*Window.width/Window.height,1)
+          MDToolbar:
+            id: P4
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':.25}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('P4')]]
+          Label:
+            size_hint: (2.4*Window.width/Window.height,1)
+        BoxLayout:
+          spacing: dp(1)
+          Label:
+            size_hint: (.55*Window.width/Window.height,1)
+          MDToolbar:
+            id: T5
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':1.07}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('T5')]]
+          Label:
+            size_hint: (1.15*Window.width/Window.height,1)
+          MDToolbar:
+            id: T6
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':1.07}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('T6')]]
+          Label:
+            size_hint: (1*Window.width/Window.height,1)
+        BoxLayout:
+          Label:
+            size_hint: (1.01*Window.width/Window.height,1)
+          MDToolbar:
+            id: O1
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':1.16}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('O1')]]
+          Label:
+            size_hint: (.5*Window.width/Window.height,1)
+          MDToolbar:
+            id: O2
+            elevation: 0
+            size_hint:(0,.6)
+            md_bg_color: (1, 0, 0, 0)
+            pos_hint: {'center_y':1.16}
+            specific_text_color: 1,1,1,1
+            size_hint_x: .0001*Window.width
+            right_action_items: [['circle-slice-8', lambda x: app.Electrode_Toggle('O2')]]
+          Label:
+            size_hint: (1.5*Window.width/Window.height,1)

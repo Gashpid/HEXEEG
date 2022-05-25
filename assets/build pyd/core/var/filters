@@ -1,0 +1,8 @@
+BandPass,6,0.5,4,Delta
+BandPass,6,4,8,Theta
+BandPass,6,8,12,Alpha
+BandPass,6,12,40,Beta
+BandPass,6,12,18,Low_Beta
+BandPass,6,18,40,High_Beta
+BandPass,6,40,70,Gamma
+Notch,60,30,Notch
