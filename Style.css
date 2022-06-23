@@ -1,0 +1,41 @@
+.name{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.name:hover{
+    color: #AAAAAA;
+}
+#caption1{
+    background-image: url("assets/media/Alg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #DFDFDF;
+}
+#caption2{
+    background-image: url("assets/media/Cr0.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #DFDFDF;
+}
+#caption3{
+    background-image: url("assets/media/filt1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #DFDFDF;
+}
+#PrtC{
+    border-radius: 50%;
+}
+p{
+    text-align: justify;
+}
+#pAL{
+    text-align: center;
+}
+#git{
+    color: blue;  
+}
+#gitT{
+    display:inline;
+    text-align: justify;
+}

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Hugo 0.88.1">
+      <title>H3XEEG PI-673</title>
+
+      <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+      <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <link rel="icon" href="assets/media/icon.png">
+
+      <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+
+      <link href="carousel.css" rel="stylesheet">
+      <link href="Style.css" rel="stylesheet">
+    </head>
+
+  <body>
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <svg id="PrtC" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <image href="assets/media/icon.png" height="24" width="24"/>
+          </svg>
+          <a class="name" href="index.html">PI-673</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Printed circuits</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </header>
+
+    <main>
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+      
+      <center><h1>Active electrodes</h1></center>
+      <div class="container marketing">
+        <p>Dry active electrodes are a very effective tool for electroencephalographic measurements. This type of electrodes increase the common mode rejection in the measuring device, and they are also more comfortable to place since they do not need saline solution for their correct functioning.</p>
+      </div>
+      <br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <br>
+            <p>This active electrode has a common mode rejection of -100 dB, with a fixed gain of 2, a diameter of 10mm and a height of 8mm. It has six gold-plated copper test pins, this in order to increase its conductivity and reduce the input impedance of the electrode, additionally it has an internal filter against radio frequencies, which allows it to reject interference from the radioelectric spectrum of the environment.</p>
+            <div class="col">
+              <svg id="PrtD" width="290" height="290" xmlns="http://www.w3.org/2000/svg">
+                <image href="assets/media/Cr0.png" width="290" height="290"/>
+              </svg>
+              <svg id="PrtD" width="250" height="230" xmlns="http://www.w3.org/2000/svg">
+                <image href="assets/media/ELB.jpeg" width="250" height="240"/>
+              </svg>
+            </div>
+          </div>
+          <div class="col">
+            <svg id="PrtD" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+              <image href="assets/media/ELT.jpeg" width="500" height="500"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <center><h2>Power board</h2></center>
+      <div class="container marketing">
+        <p>Both the active electrodes and the acquisition integrated unit (ADS1299) require a bipolar power supply of ± 2.5 v. For this reason, a power card was designed to supply them. This has two lithium polymer (Li-ion) batteries that provide up to six hours of autonomy.</p>
+      </div>
+ 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <br>
+            <br>
+            <p>The power board has three voltage outputs corresponding to +2.5 v, -2.5 v and 5 v, and of course a fourth ground output (GND). For the 5 v voltage output the board delivers up to 1 A and for the ±2.5 v differential outputs up to 200 mA.</p>
+            <div class="col">
+              <svg id="PrtD" width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+                <image href="assets/media/PBST.png" width="250" height="250"/>
+              </svg>
+              <svg id="PrtD" width="275" height="275" xmlns="http://www.w3.org/2000/svg">
+                <image href="assets/media/PBSB.png" width="275" height="275"/>
+              </svg>
+            </div>
+          </div>
+          <div class="col">
+            <svg id="PrtD" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+              <image href="assets/media/PB.jpeg" width="500" height="500"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+
+      <hr class="featurette-divider">
+      <center><h2>Future acquisition board</h2></center>
+      <div class="container marketing">
+        <p>We are currently working on the development of an acquisition card for 16 physical differential channels, which has three analog multiplexers that allow to expand to 19 channels to perform measurements of all the locations stipulated in the 10-20 internal system (SI/10-20).</p>
+      </div>
+ 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <br>
+            <br>
+            <p id="gitT">This card has two integrated ADS1299, a 4-channel analog multiplexer and the proper protections to the patient, including RC filter that rejects the radioelectric spectrum that adds to the electroencephalographic signals. The card is controlled by the Teensy4.1 module whose core is an ARM-CortexM7 MCU which performs the control and preprocessing of EEG signals at the request of a computer with </p><a id="git" href="https://github.com/Gashpid/PI-673" target="_blank">specialized software</a><p id="gitT">, additionally it can save the acquired data on a micro SD card.</p>
+            <div class="col">
+              <svg id="PrtD" width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+                <image href="assets/media/MB3DTV.png" width="250" height="250"/>
+              </svg>
+              <svg id="PrtD" width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+                <image href="assets/media/MB3DBV.png" width="260" height="260"/>
+              </svg>
+            </div>
+          </div>
+          <div class="col">
+            <svg id="PrtD" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+              <image href="assets/media/MB.jpeg" width="500" height="500"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+    </main>
+
+    <footer class="container">
+      <div class="row">
+        <!--
+        <div class="col-12 col-md">
+          <svg id="PrtC" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <image href="assets/media/icon.png" height="24" width="24"/>
+          </svg>
+          <small class="d-block mb-3 text-muted">&copy; 2017–2021</small> 
+        </div>
+        -->
+        <!--
+        <div class="col-6 col-md">
+          <h5>Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Cool stuff</a></li>
+            <li><a class="link-secondary" href="#">Random feature</a></li>
+            <li><a class="link-secondary" href="#">Team feature</a></li>
+            <li><a class="link-secondary" href="#">Stuff for developers</a></li>
+            <li><a class="link-secondary" href="#">Another one</a></li>
+            <li><a class="link-secondary" href="#">Last time</a></li>
+          </ul>
+        </div>
+      -->
+      <p>This site is under construction, please be patient.</p>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="https://drive.google.com/drive/folders/1S6fyVPzAWV5xk1yPQM4AsAVIaBnV2Pfk?usp=sharing" target="_blank">Resource folder</a></li>
+            <image src="assets/media/git.png" width="40" height="40"/> <a class="link-secondary" href="https://github.com/Gashpid/PI-673" target="_blank">GitHub resource</a>
+          </ul>
+        </div>
+        <!--
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Business</a></li>
+            <li><a class="link-secondary" href="#">Education</a></li>
+            <li><a class="link-secondary" href="#">Government</a></li>
+            <li><a class="link-secondary" href="#">Gaming</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Team</a></li>
+            <li><a class="link-secondary" href="#">Locations</a></li>
+            <li><a class="link-secondary" href="#">Privacy</a></li>
+            <li><a class="link-secondary" href="#">Terms</a></li>
+          </ul>
+        </div>
+      -->
+      </div>
+    </footer>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
