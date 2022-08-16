@@ -17,3 +17,9 @@ signal conditioners and performs the preprocessing. Both the active electrodes a
 designed acquisition card are powered by a power supply card with a 5V unipolar output
 and a ±2.5V bipolar output; it is powered by two 850mA LI-ion batteries, which provides
 autonomy of about eight hours.
+
+<br>
+<br>
+
+All designs and codes are copyrighted.
+These designs and codes are copyrighted and associated to the thesis (https://repositorio.unbosque.edu.co/bitstream/handle/20.500.12495/8026/Izquierdo_Gomez_Proyecto_Grado.pdf?sequence=1&isAllowed=y), with creative commons Shar-Alike license.
